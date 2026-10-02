@@ -1,0 +1,1174 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M-Rik Barbershop, barbier au Mans</title>
+<meta name="description" content="M-Rik Barbershop, barbier au 3 rue Gambetta, Le Mans. Coupe homme 23 €, coupe + barbe 29 €. Du lundi au samedi, 10h–20h. Réservation sur Planity.">
+<meta name="theme-color" content="#C6A15B">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="M-Rik Barbershop, barbier au Mans">
+<meta property="og:description" content="Dégradés, barbe, motifs et coupes enfants au 3 rue Gambetta depuis 2018. Noté 4,8 sur Google (1 241 avis).">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E0D0C'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='40' fill='%23C6A15B'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Hanken+Grotesk:wght@400;600&display=swap">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HairSalon",
+  "name": "M-Rik Barbershop",
+  "description": "Salon de coiffure pour hommes et enfants : coupes classiques, motifs, effet bouclé, défrisage et barbe.",
+  "telephone": "+33767748757",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "3 Rue Gambetta",
+    "postalCode": "72000",
+    "addressLocality": "Le Mans",
+    "addressCountry": "FR"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 48.0046719, "longitude": 0.1946646 },
+  "hasMap": "https://www.google.com/maps/place/?q=place_id:ChIJ-XcbQJeJ4kcRCIj1_NV1hNQ",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "10:00",
+      "closes": "20:00"
+    }
+  ],
+  "paymentAccepted": "Cartes de crédit, cartes de débit, paiements mobiles NFC",
+  "sameAs": [
+    "https://www.facebook.com/p/M-rik-barbershop-Le-Mans-100064794499591/",
+    "https://www.instagram.com/mrik_barbershop_lemans/"
+  ]
+}
+</script>
+<style>
+/* ==========================================================================
+   M-Rik Barbershop — design decisions
+   Palette  : lifted from the salon itself. Black-gold marble floor and black
+              walls (--night), the gold script of the shop sign (--brand), the
+              walnut slats between the mirrors (--accent), and white chairs and
+              walls warmed into a bone paper (--bg) for the light sections.
+              One strong colour move: the booking band is a full gold field,
+              like the sign.
+   Type     : DM Serif Display (roman + italic) for display. Its high contrast
+              and italic echo the gold script on the façade. Hanken Grotesk
+              400/600 for body and UI: neutral, legible at 16px, tabular figures
+              for prices.
+   Hero     : full-bleed photo of the chairs on the reflective marble, slow Ken
+              Burns, bottom scrim. Headline built from the reviews' two most
+              repeated phrases: « nickel » and « comme d'habitude ».
+   Rhythm   : dark hero → bone proof (oversized 4,8) → black price board →
+              black gallery → bone hours/map → gold booking band → black footer.
+              Asymmetric 5/7 splits, one oversized number, generous air.
+   ========================================================================== */
+:root {
+  /* colour */
+  --bg: #F3EEE6;
+  --surface: #FBF8F3;
+  --ink: #141210;
+  --ink-soft: #564E46;
+  --brand: #C6A15B;
+  --brand-ink: #141210;
+  --accent: #7B4E2D;
+  --line: rgba(20, 18, 16, .14);
+  --night: #0E0D0C;
+  --night-2: #181614;
+  --on-night: #F3EEE6;
+  --on-night-soft: #ADA59A;
+  --line-night: rgba(243, 238, 230, .14);
+  --star: #A47A33;
+  --open: #2F8F5B;
+  --closed: #B4502F;
+
+  /* type */
+  --font-display: "DM Serif Display", "Didot", "Bodoni 72", Georgia, "Times New Roman", serif;
+  --font-body: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --step--1: clamp(.875rem, .85rem + .12vw, .9375rem);
+  --step-0: clamp(1rem, .96rem + .2vw, 1.125rem);
+  --step-1: clamp(1.2rem, 1.1rem + .45vw, 1.45rem);
+  --step-2: clamp(1.45rem, 1.25rem + .9vw, 2rem);
+  --step-3: clamp(1.85rem, 1.45rem + 1.7vw, 2.95rem);
+  --step-4: clamp(2.35rem, 1.7rem + 2.9vw, 4.4rem);
+  --step-5: clamp(2.8rem, 1.75rem + 4.8vw, 6.75rem);
+  --step-hero: clamp(7rem, 4rem + 13vw, 14rem);
+
+  /* space */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --section: clamp(56px, 10vw, 128px);
+  --gutter: clamp(16px, 5vw, 40px);
+  --header-h: 64px;
+  --bar-h: 64px;
+
+  /* shape + depth */
+  --r-1: 6px;
+  --r-2: 16px;
+  --r-pill: 999px;
+  --sh-1: 0 1px 2px rgba(20, 18, 16, .06), 0 2px 8px rgba(20, 18, 16, .05);
+  --sh-2: 0 2px 4px rgba(20, 18, 16, .06), 0 12px 32px -8px rgba(20, 18, 16, .18);
+  --sh-3: 0 4px 10px rgba(0, 0, 0, .25), 0 30px 60px -20px rgba(0, 0, 0, .55);
+
+  /* motion */
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --t-fast: 200ms;
+  --t-med: 450ms;
+  --t-slow: 700ms;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: calc(var(--bar-h) + env(safe-area-inset-bottom));
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+h1, h2, h3 { margin: 0; font-weight: 400; text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
+ul { margin: 0; padding: 0; list-style: none; }
+address { font-style: normal; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+:focus-visible { outline: 3px solid var(--focus, var(--brand)); outline-offset: 3px; border-radius: 4px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+.skip {
+  position: fixed; left: var(--space-4); top: var(--space-4); z-index: 100;
+  padding: var(--space-3) var(--space-4); background: var(--brand); color: var(--brand-ink);
+  border-radius: var(--r-1); font-weight: 600; text-decoration: none;
+  transform: translateY(-200%); transition: transform var(--t-fast) var(--ease);
+}
+.skip:focus { transform: none; }
+
+.container { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--section); scroll-margin-top: var(--header-h); }
+.dark { background: var(--night); color: var(--on-night); }
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: var(--space-3);
+  font-size: var(--step--1); font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--accent);
+}
+.eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; }
+.dark .eyebrow { color: var(--brand); }
+
+.h2 { font-family: var(--font-display); font-size: var(--step-4); line-height: 1.04; letter-spacing: -.015em; }
+.h2 em { color: var(--accent); }
+.dark .h2 em { color: var(--brand); }
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 52px; padding: 0 24px; border-radius: var(--r-pill);
+  font-weight: 600; font-size: var(--step-0); line-height: 1.2; text-decoration: none; text-align: center;
+  border: 1.5px solid transparent;
+  transition: transform var(--t-fast) var(--ease), background-color var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+}
+.btn svg { width: 20px; height: 20px; flex: none; }
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+.btn-gold { background: var(--brand); color: var(--brand-ink); box-shadow: 0 10px 30px -12px rgba(198, 161, 91, .7); }
+.btn-gold:hover { background: #D3B06C; }
+.btn-ghost { border-color: rgba(243, 238, 230, .45); color: var(--on-night); }
+.btn-ghost:hover { background: rgba(243, 238, 230, .08); }
+.btn-ink { background: var(--ink); color: var(--bg); }
+.btn-ink:hover { background: #2A2622; }
+.btn-line { border-color: var(--ink); color: var(--ink); }
+.btn-line:hover { background: rgba(20, 18, 16, .08); }
+.btn-sm { min-height: 44px; padding: 0 18px; font-size: var(--step--1); }
+
+/* ---------- star rating (masked, supports partial fill) ---------- */
+.stars {
+  --pct: 100%; --size: 18px; --on: var(--star); --off: rgba(20, 18, 16, .16);
+  display: inline-block; width: calc(var(--size) * 5); height: var(--size); flex: none;
+  background: linear-gradient(90deg, var(--on) var(--pct), var(--off) var(--pct));
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.2l2.95 6.2 6.8.85-5 4.7 1.3 6.75L12 17.4l-6.05 3.3 1.3-6.75-5-4.7 6.8-.85z'/%3E%3C/svg%3E") 0 0 / var(--size) var(--size) repeat-x;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.2l2.95 6.2 6.8.85-5 4.7 1.3 6.75L12 17.4l-6.05 3.3 1.3-6.75-5-4.7 6.8-.85z'/%3E%3C/svg%3E") 0 0 / var(--size) var(--size) repeat-x;
+}
+
+/* ---------- header ---------- */
+.site-header {
+  position: fixed; inset: 0 0 auto; z-index: 60; height: var(--header-h);
+  color: var(--on-night);
+  transition: background-color var(--t-med) var(--ease), box-shadow var(--t-med) var(--ease);
+}
+.site-header.is-solid, .menu-open .site-header { background: rgba(14, 13, 12, .94); box-shadow: 0 1px 0 var(--line-night); }
+.header-inner { height: 100%; display: flex; align-items: center; gap: var(--space-3); }
+.wordmark { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; min-height: 44px; margin-right: auto; }
+@media (max-width: 399px) { .wm-b { font-size: .6875rem; letter-spacing: .16em; } }
+@media (max-width: 359px) { .wm-b { display: none; } }
+.wm-m { font-family: var(--font-display); font-style: italic; font-size: 1.6rem; line-height: 1; color: var(--brand); letter-spacing: -.01em; }
+.wm-b { font-size: .75rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--on-night); padding-top: 4px; }
+.nav { display: none; }
+.burger { width: 44px; height: 44px; display: grid; place-items: center; border-radius: var(--r-pill); margin-right: -8px; }
+.burger svg { width: 24px; height: 24px; }
+.burger .i-close { display: none; }
+.burger[aria-expanded="true"] .i-open { display: none; }
+.burger[aria-expanded="true"] .i-close { display: block; }
+
+.menu {
+  position: fixed; inset: 0; z-index: 55; background: var(--night); color: var(--on-night);
+  padding: calc(var(--header-h) + var(--space-6)) var(--gutter) calc(var(--space-6) + env(safe-area-inset-bottom));
+  display: flex; flex-direction: column; gap: var(--space-6); overflow-y: auto;
+  visibility: hidden; opacity: 0; transform: translateY(-8px);
+  transition: opacity var(--t-med) var(--ease), transform var(--t-med) var(--ease), visibility 0s linear var(--t-med);
+}
+.menu-open .menu { visibility: visible; opacity: 1; transform: none; transition-delay: 0s; }
+.menu nav { display: flex; flex-direction: column; }
+.menu nav a {
+  display: flex; align-items: center; justify-content: space-between; min-height: 60px;
+  font-family: var(--font-display); font-size: var(--step-3); line-height: 1.1; text-decoration: none;
+  border-bottom: 1px solid var(--line-night);
+}
+.menu nav a span { font-family: var(--font-body); font-size: var(--step--1); color: var(--on-night-soft); letter-spacing: .1em; }
+.menu-foot { margin-top: auto; display: grid; gap: var(--space-3); }
+.menu-foot p { color: var(--on-night-soft); }
+.menu-open { overflow: hidden; }
+
+/* ---------- hero ---------- */
+.hero {
+  position: relative; isolation: isolate; overflow: hidden;
+  min-height: calc(100svh - var(--bar-h) - env(safe-area-inset-bottom));
+  display: flex; align-items: flex-end;
+  background: var(--night); color: var(--on-night);
+}
+.hero-media { position: absolute; inset: 0; z-index: -2; }
+.hero-media img {
+  width: 100%; height: 100%; object-fit: cover; object-position: 28% 50%;
+  transform-origin: 30% 60%;
+  animation: kenburns 28s var(--ease) infinite alternate;
+}
+@keyframes kenburns { from { transform: scale(1.02); } to { transform: scale(1.12) translate3d(1.5%, -1%, 0); } }
+.hero::after {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background:
+    linear-gradient(to bottom, rgba(14, 13, 12, .7) 0, rgba(14, 13, 12, 0) 22%),
+    linear-gradient(to top, rgba(14, 13, 12, .97) 0, rgba(14, 13, 12, .88) 34%, rgba(14, 13, 12, .3) 64%, rgba(14, 13, 12, 0) 80%);
+}
+.hero-inner { padding-top: calc(var(--header-h) + var(--space-9)); padding-bottom: var(--space-7); display: grid; gap: var(--space-7); }
+.hero-copy { display: grid; gap: var(--space-5); justify-items: start; max-width: 760px; }
+.rating-chip {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 16px 0 12px;
+  border-radius: var(--r-pill); background: rgba(14, 13, 12, .55); border: 1px solid rgba(243, 238, 230, .22);
+  text-decoration: none; font-size: var(--step--1); color: var(--on-night);
+}
+.rating-chip strong { font-weight: 600; font-size: 1rem; }
+.rating-chip .stars { --size: 15px; --on: var(--brand); --off: rgba(243, 238, 230, .25); }
+.rating-chip .dot { opacity: .5; }
+.hero h1 { display: grid; gap: var(--space-3); }
+.h1-kicker { font-size: var(--step--1); font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--on-night); }
+.h1-display { font-family: var(--font-display); font-size: var(--step-5); line-height: 1.02; letter-spacing: -.02em; }
+.h1-display em { color: var(--brand); }
+.hero-lead { font-size: var(--step-1); line-height: 1.45; color: #E4DED4; max-width: 34ch; }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: var(--space-3); padding-top: var(--space-2); }
+.hero-panel { display: none; }
+.hero-call { display: none; }
+.status {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 36px; padding: 6px 14px;
+  border-radius: var(--r-pill); font-size: var(--step--1); font-weight: 600; line-height: 1.3;
+  background: var(--surface); border: 1px solid var(--line); color: var(--ink);
+}
+.hours-col .status { justify-self: start; }
+.status::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--ink-soft); flex: none; }
+.status.is-open::before { background: var(--open); box-shadow: 0 0 0 4px rgba(47, 143, 91, .18); }
+.status.is-closed::before { background: var(--closed); }
+.status--night { background: rgba(243, 238, 230, .08); border-color: var(--line-night); color: var(--on-night); }
+.status--night.is-open::before { background: #49B97A; box-shadow: 0 0 0 4px rgba(73, 185, 122, .2); }
+.status--night.is-closed::before { background: #E07A57; }
+
+/* ---------- proof ---------- */
+.proof-grid { display: grid; gap: var(--space-7); }
+.score { display: grid; grid-template-columns: auto 1fr; align-items: center; column-gap: var(--space-5); row-gap: var(--space-5); }
+.score .eyebrow { grid-column: 1 / -1; }
+.score-num {
+  font-family: var(--font-display); font-size: var(--step-hero); line-height: .8; letter-spacing: -.04em;
+  font-variant-numeric: lining-nums;
+}
+.score-meta { display: grid; gap: var(--space-2); align-content: center; }
+.score-meta .stars { --size: 22px; --pct: 96%; }
+.score-count { font-size: var(--step-0); color: var(--ink-soft); line-height: 1.35; }
+.score-count strong { display: block; color: var(--ink); font-size: var(--step-2); font-family: var(--font-display); font-weight: 400; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.score .btn { grid-column: 1 / -1; justify-self: start; }
+.proof-copy { display: grid; gap: var(--space-5); align-content: start; }
+.proof-copy > p { color: var(--ink-soft); max-width: 58ch; font-size: var(--step-1); line-height: 1.5; }
+.topics { border-top: 1px solid var(--line); }
+.topics li { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-4); padding: var(--space-3) 0; border-bottom: 1px solid var(--line); }
+.topics .t-word { font-family: var(--font-display); font-style: italic; font-size: var(--step-2); line-height: 1.2; }
+.topics .t-n { font-size: var(--step--1); color: var(--ink-soft); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.topics li:first-child .t-word { color: var(--accent); }
+
+.rail-wrap { margin-top: var(--space-8); }
+.rail-head { display: flex; align-items: end; justify-content: space-between; gap: var(--space-4); margin-bottom: var(--space-5); }
+.rail-head h3 { font-family: var(--font-display); font-size: var(--step-2); line-height: 1.15; }
+.rail-ctrl { display: flex; gap: var(--space-2); flex: none; }
+.rail-btn {
+  width: 48px; height: 48px; display: grid; place-items: center; border-radius: 50%;
+  border: 1.5px solid var(--ink); color: var(--ink);
+  transition: background-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease), opacity var(--t-fast) var(--ease);
+}
+.rail-btn svg { width: 20px; height: 20px; }
+.rail-btn:hover { background: var(--ink); color: var(--bg); }
+.rail-btn:disabled { opacity: .3; cursor: default; background: none; color: var(--ink); }
+.rail {
+  --inset: max(var(--gutter), calc((100% - 1200px) / 2 + var(--gutter)));
+  display: flex; gap: var(--space-4); overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory; scroll-padding-inline: var(--inset);
+  padding: var(--space-2) var(--inset) var(--space-6);
+  scrollbar-width: none;
+}
+.rail::-webkit-scrollbar { display: none; }
+.review {
+  flex: 0 0 min(86%, 390px); scroll-snap-align: start;
+  display: flex; flex-direction: column; gap: var(--space-4);
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-2);
+  padding: var(--space-6) var(--space-5) var(--space-5); box-shadow: var(--sh-1);
+}
+.review { position: relative; }
+.review::before {
+  content: "\201C"; position: absolute; top: 14px; right: 22px; font-family: var(--font-display);
+  font-size: 5rem; line-height: 1; color: var(--brand); opacity: .55; pointer-events: none;
+}
+.review blockquote { margin: 0; flex: 1; }
+.review blockquote p { font-size: var(--step-0); line-height: 1.6; }
+.review footer { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); padding-top: var(--space-4); border-top: 1px solid var(--line); }
+.review cite { font-style: normal; font-weight: 600; }
+.review time { font-size: var(--step--1); color: var(--ink-soft); }
+
+/* ---------- services / price board ---------- */
+.services-grid { display: grid; gap: var(--space-8); }
+.services-head { display: grid; gap: var(--space-5); align-content: start; }
+.services-head > p { color: var(--on-night-soft); max-width: 46ch; }
+.services-head .line { display: block; }
+.specialties { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.specialties li { padding: 8px 14px; border: 1px solid var(--line-night); border-radius: var(--r-pill); font-size: var(--step--1); color: var(--on-night); }
+.fine { font-size: var(--step--1); color: var(--on-night-soft); }
+.board { display: grid; gap: var(--space-7); }
+.group h3 {
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px var(--space-4);
+  font-family: var(--font-display); font-size: var(--step-2); line-height: 1.15; padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--brand);
+}
+.group h3 small { font-family: var(--font-body); font-size: var(--step--1); color: var(--on-night-soft); letter-spacing: .02em; }
+.prices li { display: flex; align-items: baseline; gap: var(--space-4); padding: 12px 0; border-bottom: 1px solid var(--line-night); }
+.p-name { flex: 1; min-width: 0; }
+.p-price {
+  font-family: var(--font-display); font-size: var(--step-1); line-height: 1; color: var(--brand);
+  white-space: nowrap; font-variant-numeric: tabular-nums lining-nums;
+}
+.p-price.is-text { font-family: var(--font-body); font-size: var(--step--1); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+.group--main .p-price { font-size: var(--step-2); }
+.group--urgent {
+  background: var(--night-2); border: 1px solid var(--line-night); border-radius: var(--r-2);
+  padding: var(--space-5);
+}
+.group--urgent > p { color: var(--on-night-soft); margin: var(--space-3) 0 var(--space-2); }
+.group--urgent .prices li:last-child { border-bottom: 0; }
+.group--urgent a { color: var(--on-night); text-underline-offset: 3px; }
+
+/* ---------- gallery ---------- */
+.salon { padding-top: 0; }
+.salon-head { display: grid; gap: var(--space-5); margin-bottom: var(--space-7); max-width: 760px; }
+.salon-head > p { color: var(--on-night-soft); font-size: var(--step-1); line-height: 1.5; max-width: 52ch; }
+.gallery { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); }
+.g-item {
+  position: relative; overflow: hidden; border-radius: var(--r-1); padding: 0; background: var(--night-2);
+  aspect-ratio: 1 / 1;
+}
+.g-item img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform var(--t-slow) var(--ease); }
+.g-item:hover img { transform: scale(1.04); }
+.g-item .g-zoom {
+  position: absolute; right: 10px; bottom: 10px; width: 36px; height: 36px; display: grid; place-items: center;
+  border-radius: 50%; background: rgba(14, 13, 12, .6); color: var(--on-night);
+}
+.g-item .g-zoom svg { width: 18px; height: 18px; }
+.g-a { grid-column: 1 / -1; aspect-ratio: 3 / 2; }
+.g-b { grid-row: span 2; aspect-ratio: auto; }
+.g-b img { object-position: 8% 50%; }
+
+.lightbox {
+  width: 100%; max-width: 100%; height: 100%; max-height: 100%; margin: 0; padding: 0; border: 0;
+  background: var(--night); color: var(--on-night);
+}
+.lightbox[open] { display: grid; place-items: center; animation: fade var(--t-med) var(--ease); }
+.lightbox::backdrop { background: rgba(10, 9, 8, .8); }
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+.lightbox figure { margin: 0; padding: var(--space-8) var(--space-4); display: grid; gap: var(--space-4); justify-items: center; }
+.lightbox img { max-width: min(1200px, 100%); max-height: calc(100dvh - 180px); width: auto; height: auto; border-radius: var(--r-1); box-shadow: var(--sh-3); }
+.lightbox figcaption { color: var(--on-night-soft); font-size: var(--step--1); text-align: center; max-width: 60ch; }
+.lb-btn {
+  position: absolute; width: 48px; height: 48px; display: grid; place-items: center; border-radius: 50%;
+  background: rgba(243, 238, 230, .1); color: var(--on-night);
+}
+.lb-btn:hover { background: rgba(243, 238, 230, .2); }
+.lb-btn svg { width: 22px; height: 22px; }
+.lb-close { top: var(--space-4); right: var(--space-4); }
+.lb-prev { left: var(--space-4); bottom: var(--space-4); }
+.lb-next { right: var(--space-4); bottom: var(--space-4); }
+
+/* ---------- hours + location ---------- */
+.hours-grid { display: grid; gap: var(--space-7); }
+.hours-col { display: grid; gap: var(--space-5); align-content: start; }
+.hours-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.hours-table th, .hours-table td { padding: 14px 12px; border-bottom: 1px solid var(--line); text-align: left; font-weight: 400; }
+.hours-table td { text-align: right; white-space: nowrap; }
+.hours-table tr.is-closed td { color: var(--ink-soft); }
+.hours-table tr.is-today th, .hours-table tr.is-today td { background: rgba(198, 161, 91, .22); font-weight: 600; border-bottom-color: transparent; }
+.hours-table tr.is-today th { border-radius: var(--r-1) 0 0 var(--r-1); }
+.hours-table tr.is-today td { border-radius: 0 var(--r-1) var(--r-1) 0; }
+.today-tag { display: inline-block; margin-left: 8px; padding: 1px 8px; border-radius: var(--r-pill); background: var(--ink); color: var(--bg); font-size: .75rem; font-weight: 600; letter-spacing: .04em; vertical-align: 2px; }
+.note { display: flex; gap: var(--space-3); padding: var(--space-4); border-radius: var(--r-2); background: var(--surface); border: 1px solid var(--line); color: var(--ink-soft); }
+.note svg { width: 22px; height: 22px; flex: none; color: var(--accent); margin-top: 2px; }
+.note strong { color: var(--ink); }
+.note a { color: var(--ink); font-weight: 600; text-underline-offset: 3px; }
+.facade { margin: 0; display: grid; gap: var(--space-3); align-content: start; }
+.facade img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 45%; border-radius: var(--r-2); box-shadow: var(--sh-2); }
+.facade figcaption { font-size: var(--step--1); color: var(--ink-soft); }
+.map-row { display: grid; gap: var(--space-4); margin-top: var(--space-8); }
+.map-frame {
+  position: relative; overflow: hidden; border-radius: var(--r-2); background: #E3DCD0; border: 1px solid var(--line);
+  aspect-ratio: 4 / 3; box-shadow: var(--sh-1);
+}
+.map-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.map-frame .map-fallback { position: absolute; inset: 0; display: grid; place-items: center; padding: var(--space-5); text-align: center; color: var(--ink-soft); }
+.address-card { order: -1; display: grid; gap: var(--space-4); align-content: start; padding: var(--space-6) var(--space-5); background: var(--ink); color: var(--on-night); border-radius: var(--r-2); --focus: var(--brand); }
+.address-card h3 { font-family: var(--font-display); font-size: var(--step-3); line-height: 1.05; }
+.address-card address { color: var(--on-night-soft); font-size: var(--step-1); line-height: 1.45; }
+.address-card .btn { justify-self: start; }
+.practical { display: grid; gap: var(--space-2); padding-top: var(--space-4); border-top: 1px solid var(--line-night); }
+.practical li { display: flex; gap: var(--space-3); align-items: flex-start; color: var(--on-night-soft); font-size: var(--step--1); line-height: 1.5; }
+.practical svg { width: 18px; height: 18px; flex: none; color: var(--brand); margin-top: 2px; }
+.map-link { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink); font-weight: 600; text-underline-offset: 3px; }
+
+/* ---------- contact (gold band) ---------- */
+.contact { background: var(--brand); color: var(--brand-ink); --focus: var(--ink); }
+.contact .eyebrow { color: var(--brand-ink); }
+.contact-grid { display: grid; gap: var(--space-7); }
+.contact h2 { font-family: var(--font-display); font-size: var(--step-5); line-height: .98; letter-spacing: -.025em; }
+.contact .lead { font-size: var(--step-1); line-height: 1.5; color: #3B3128; max-width: 44ch; }
+.contact-copy { display: grid; gap: var(--space-5); }
+.team { display: grid; gap: var(--space-2); padding-top: var(--space-3); }
+.team-label { font-size: var(--step--1); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.team-names { display: flex; flex-wrap: wrap; gap: 2px 14px; font-family: var(--font-display); font-style: italic; font-size: var(--step-2); line-height: 1.25; }
+.team-names li:not(:last-child)::after { content: "·"; margin-left: 14px; font-style: normal; opacity: .55; }
+.contact-actions { display: grid; gap: var(--space-3); align-content: start; }
+.contact-actions .btn { min-height: 60px; justify-content: space-between; padding-inline: 26px; }
+.btn-night { background: var(--night); color: var(--on-night); }
+.btn-night:hover { background: #26221F; }
+.socials { display: flex; gap: var(--space-2); padding-top: var(--space-3); }
+.social {
+  width: 48px; height: 48px; display: grid; place-items: center; border-radius: 50%;
+  border: 1.5px solid currentColor; transition: background-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+}
+.social svg { width: 22px; height: 22px; }
+.contact .social:hover { background: var(--ink); color: var(--brand); }
+
+/* ---------- footer ---------- */
+.site-footer { background: var(--night); color: var(--on-night-soft); padding-block: var(--space-8) var(--space-6); font-size: var(--step--1); }
+.footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6) var(--space-5); }
+.footer-brand, .footer-follow { grid-column: 1 / -1; }
+.footer-brand p { margin-top: var(--space-3); max-width: 32ch; }
+.f-title { font-family: var(--font-body); font-size: .75rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--on-night); margin-bottom: var(--space-2); }
+.f-links { display: grid; }
+.f-links a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; color: var(--on-night-soft); transition: color var(--t-fast) var(--ease); }
+.f-links a:hover { color: var(--brand); }
+.site-footer .socials { color: var(--on-night); padding-top: var(--space-2); }
+.site-footer .social:hover { background: var(--brand); color: var(--brand-ink); border-color: var(--brand); }
+.footer-base { margin-top: var(--space-7); padding-top: var(--space-5); border-top: 1px solid var(--line-night); display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-3); }
+
+/* ---------- sticky action bar (mobile) ---------- */
+.action-bar {
+  position: fixed; inset: auto 0 0; z-index: 50;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  background: var(--night); border-top: 1px solid var(--line-night);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.action-bar a {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+  min-height: var(--bar-h); color: var(--on-night); text-decoration: none; font-size: .8125rem; font-weight: 600; letter-spacing: .02em;
+}
+.action-bar a + a { border-left: 1px solid var(--line-night); }
+.action-bar svg { width: 22px; height: 22px; color: var(--brand); }
+.action-bar a:active { background: var(--night-2); }
+
+/* ---------- reveal ---------- */
+.reveal.is-armed { opacity: 0; transform: translateY(18px); transition: opacity var(--t-slow) var(--ease), transform var(--t-slow) var(--ease); }
+.reveal.is-armed.is-in { opacity: 1; transform: none; }
+
+/* ==========================================================================
+   ≥ 640
+   ========================================================================== */
+@media (min-width: 640px) {
+  .gallery { gap: var(--space-3); }
+  .review { padding: var(--space-6); }
+  .map-frame { aspect-ratio: 16 / 9; }
+}
+
+/* ==========================================================================
+   ≥ 768 : header carries the CTA, no bottom bar
+   ========================================================================== */
+@media (min-width: 768px) {
+  body { padding-bottom: 0; }
+  .action-bar { display: none; }
+  .hero-call { display: inline-flex; }
+  .hero { min-height: 100svh; }
+  .hero-media img { object-position: 40% 50%; }
+}
+
+/* ==========================================================================
+   ≥ 960
+   ========================================================================== */
+@media (min-width: 960px) {
+  :root { --header-h: 76px; }
+  .nav { display: flex; gap: var(--space-1); margin-right: var(--space-3); }
+  .nav a {
+    display: inline-flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: var(--r-pill);
+    text-decoration: none; font-size: var(--step--1); font-weight: 600; color: var(--on-night); opacity: .82;
+    transition: opacity var(--t-fast) var(--ease), background-color var(--t-fast) var(--ease);
+  }
+  .nav a:hover { opacity: 1; background: rgba(243, 238, 230, .08); }
+  .burger, .menu { display: none; }
+  .wm-m { font-size: 1.85rem; }
+
+  .hero-inner { grid-template-columns: minmax(0, 1fr) 280px; align-items: end; padding-bottom: var(--space-8); }
+  .hero::after {
+    background:
+      linear-gradient(to bottom, rgba(14, 13, 12, .65) 0, rgba(14, 13, 12, 0) 20%),
+      linear-gradient(to top, rgba(14, 13, 12, .95) 0, rgba(14, 13, 12, .55) 38%, rgba(14, 13, 12, 0) 66%),
+      linear-gradient(90deg, rgba(14, 13, 12, .6) 0, rgba(14, 13, 12, 0) 55%);
+  }
+  .hero-panel {
+    display: grid; gap: var(--space-4); padding-left: var(--space-5); border-left: 1px solid rgba(243, 238, 230, .25);
+    font-size: var(--step--1); color: #E4DED4;
+  }
+  .hero-panel .status { justify-self: start; }
+  .hero-panel dl { margin: 0; display: grid; gap: var(--space-3); }
+  .hero-panel dt { font-size: .75rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--brand); }
+  .hero-panel dd { margin: 2px 0 0; font-size: var(--step-0); color: var(--on-night); }
+  .hero-panel a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: var(--on-night); font-weight: 600; text-underline-offset: 4px; }
+  .hero-panel a svg { width: 18px; height: 18px; color: var(--brand); }
+
+  .proof-grid { grid-template-columns: 5fr 7fr; gap: var(--space-8); align-items: start; }
+  .score { grid-template-columns: 1fr; position: sticky; top: calc(var(--header-h) + var(--space-6)); }
+  .score-meta { grid-template-columns: auto 1fr; align-items: center; column-gap: var(--space-4); }
+  .score-count strong { display: inline; }
+  .rail-wrap { margin-top: var(--space-9); }
+
+  .services-grid { gap: var(--space-9); }
+  .services-head { grid-template-columns: 7fr 5fr; column-gap: var(--space-8); row-gap: var(--space-4); align-items: start; }
+  .services-head .eyebrow { grid-column: 1 / -1; }
+  .services-head .h2 { grid-column: 1; grid-row: 2 / span 3; }
+  .services-head > p, .specialties, .fine { grid-column: 2; }
+  .services-head > p { padding-top: var(--space-2); }
+  .board {
+    grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--space-7); row-gap: var(--space-8);
+    grid-template-areas: "main main urg" "etu enf fem";
+  }
+  .group--main { grid-area: main; }
+  .group--urgent { grid-area: urg; align-self: start; padding: var(--space-6); }
+  .group--etu { grid-area: etu; }
+  .group--enf { grid-area: enf; }
+  .group--fem { grid-area: fem; }
+
+  .salon-head { grid-template-columns: 1fr; }
+  .gallery { grid-template-columns: 4fr 5fr 5fr; gap: var(--space-4); }
+  .g-b { grid-column: 1; grid-row: 1 / span 2; }
+  .g-a { grid-column: 2 / span 2; grid-row: 1; aspect-ratio: 16 / 9; }
+  .g-c, .g-d { aspect-ratio: 4 / 3; }
+
+  .hours-grid { grid-template-columns: 5fr 7fr; gap: var(--space-8); align-items: start; }
+  .facade { margin-top: var(--space-7); }
+  .map-row { grid-template-columns: 8fr 4fr; align-items: stretch; }
+  .address-card { order: 0; }
+  .hours-col .h2 { font-size: clamp(2.35rem, 1rem + 2.6vw, 3.4rem); }
+  .map-frame { aspect-ratio: auto; min-height: 440px; }
+
+  .contact-grid { grid-template-columns: 7fr 5fr; gap: var(--space-9); align-items: end; }
+
+  .footer-grid { grid-template-columns: 2fr 1.2fr 1.2fr 1fr; }
+  .footer-brand, .footer-follow { grid-column: auto; }
+}
+
+@media (min-width: 1200px) {
+  .hero-inner { grid-template-columns: minmax(0, 1fr) 300px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal.is-armed { opacity: 1; transform: none; }
+}
+</style>
+<!--sf:preview--><meta name="robots" content="noindex, nofollow"><!--/sf:preview-->
+<!--sf:og--><meta property="og:image" content="https://m-rik-barbershop-le-mans.aymenjallouli.dev/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:url" content="https://m-rik-barbershop-le-mans.aymenjallouli.dev/"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://m-rik-barbershop-le-mans.aymenjallouli.dev/og.jpg"><!--/sf:og-->
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+
+<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a class="wordmark" href="#main" aria-label="M-Rik Barbershop, haut de page">
+      <span class="wm-m">M-Rik</span><span class="wm-b">Barbershop</span>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#avis">Avis</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#salon">Le salon</a>
+      <a href="#horaires">Horaires</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-gold btn-sm" href="https://www.planity.com/mrik-barber-72000-le-mans" target="_blank" rel="noopener">Réserver</a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Ouvrir le menu">
+      <svg class="i-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+      <svg class="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="menu" id="menu" aria-label="Menu" inert>
+  <nav aria-label="Menu mobile">
+    <a href="#avis">Avis <span>4,8 / 5</span></a>
+    <a href="#tarifs">Tarifs <span>dès 16&nbsp;€</span></a>
+    <a href="#salon">Le salon</a>
+    <a href="#horaires">Horaires &amp; accès</a>
+    <a href="#contact">Rendez-vous</a>
+  </nav>
+  <div class="menu-foot">
+    <p>3 rue Gambetta, 72000 Le Mans</p>
+    <a class="btn btn-gold" href="https://www.planity.com/mrik-barber-72000-le-mans" target="_blank" rel="noopener">Réserver sur Planity</a>
+    <a class="btn btn-ghost" href="tel:+33767748757">Appeler le 07 67 74 87 57</a>
+  </div>
+</div>
+
+<main id="main" tabindex="-1">
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-media">
+      <img src="assets/photos/photo-14.jpg" width="1280" height="853" fetchpriority="high" decoding="async"
+           alt="Les fauteuils de barbier blancs alignés face aux miroirs lumineux, sur le marbre noir veiné d’or du salon">
+    </div>
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <a class="rating-chip" href="https://www.google.com/maps/place/?q=place_id:ChIJ-XcbQJeJ4kcRCIj1_NV1hNQ" target="_blank" rel="noopener" aria-label="Note Google : 4,8 sur 5, 1 241 avis. Voir les avis sur Google">
+          <span class="stars" style="--pct:96%" aria-hidden="true"></span>
+          <span><strong>4,8</strong> <span class="dot">·</span> 1&nbsp;241 avis Google</span>
+        </a>
+        <h1 id="hero-title">
+          <span class="h1-kicker">M-Rik Barbershop, barbier au Mans</span>
+          <span class="h1-display"><em>Nickel,</em> comme d’habitude.</span>
+        </h1>
+        <p class="hero-lead">Dégradés, barbe, motifs et coupes enfants, au 3&nbsp;rue Gambetta depuis 2018.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-gold" href="https://www.planity.com/mrik-barber-72000-le-mans" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>
+            Réserver sur Planity
+          </a>
+          <a class="btn btn-ghost hero-call" href="tel:+33767748757">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h3.2l1.8 4.6-2.3 1.5a11 11 0 0 0 6.2 6.2l1.5-2.3L20 15.8V19a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 3 6.2 2 2 0 0 1 5 4z"/></svg>
+            Appeler
+          </a>
+        </div>
+      </div>
+      <aside class="hero-panel" aria-label="Infos pratiques">
+        <p class="status status--night" data-status>Lundi au samedi · 10h – 20h</p>
+        <dl>
+          <div><dt>Horaires</dt><dd>Lundi au samedi, 10h – 20h</dd></div>
+          <div><dt>Adresse</dt><dd>3 rue Gambetta, Le Mans</dd></div>
+        </dl>
+        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=M-Rik%20Barbershop%2C%203%20Rue%20Gambetta%2C%2072000%20Le%20Mans" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+          Itinéraire
+        </a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- PROOF -->
+  <section class="section proof" id="avis" aria-labelledby="avis-title" style="--focus: var(--accent)">
+    <div class="container proof-grid">
+      <div class="score reveal">
+        <p class="eyebrow">Avis Google</p>
+        <p class="score-num" aria-hidden="true">4,8</p>
+        <div class="score-meta">
+          <span class="stars" role="img" aria-label="Note moyenne : 4,8 sur 5"></span>
+          <p class="score-count"><strong data-count="1241">1&nbsp;241</strong> avis publiés</p>
+        </div>
+        <a class="btn btn-ink" href="https://www.google.com/maps/place/?q=place_id:ChIJ-XcbQJeJ4kcRCIj1_NV1hNQ" target="_blank" rel="noopener">
+          Voir les 1&nbsp;241 avis sur Google
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+        </a>
+      </div>
+      <div class="proof-copy reveal">
+        <h2 class="h2" id="avis-title">Dans les avis, un mot revient plus que les autres&nbsp;: <em>nickel</em>.</h2>
+        <p>Une «&nbsp;finition précise&nbsp;». Un résultat «&nbsp;exactement ce que je demande&nbsp;». Et des parents qui confient la coupe de leur fils au salon.</p>
+        <ul class="topics" aria-label="Mots les plus cités dans les avis Google">
+          <li><span class="t-word">«&nbsp;nickel&nbsp;»</span><span class="t-n">cité 34 fois</span></li>
+          <li><span class="t-word">«&nbsp;fils&nbsp;»</span><span class="t-n">cité 13 fois</span></li>
+          <li><span class="t-word">«&nbsp;dégradé&nbsp;»</span><span class="t-n">cité 8 fois</span></li>
+          <li><span class="t-word">«&nbsp;comme d’habitude&nbsp;»</span><span class="t-n">cité 7 fois</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rail-wrap">
+      <div class="container rail-head">
+        <h3>Six avis, mot pour mot</h3>
+        <div class="rail-ctrl">
+          <button class="rail-btn" type="button" data-rail="-1" aria-label="Avis précédent" aria-controls="rail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+          </button>
+          <button class="rail-btn" type="button" data-rail="1" aria-label="Avis suivant" aria-controls="rail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+      <ul class="rail" id="rail" tabindex="0" aria-label="Avis clients Google, faites défiler horizontalement">
+        <li class="review">
+          <span class="stars" role="img" aria-label="5 sur 5"></span>
+          <blockquote><p>Client fidèle depuis quelques années maintenant, j'y vais tous les mois et le service est toujours irréprochable. Le résultat est à chaque fois exactement ce que je demande, le travail est super soigné. L'accueil est au top, le barbier est très arrangeant et d'une ponctualité rare (jamais de retard)…</p></blockquote>
+          <footer><cite>Barakat M.</cite><time datetime="2026-07-11">juillet 2026</time></footer>
+        </li>
+        <li class="review">
+          <span class="stars" role="img" aria-label="5 sur 5"></span>
+          <blockquote><p>Sortant de la Martinique, je craignais de ne pas trouver un bon coiffeur pour mon fils mais là j’ai trouvé ma pépite… merci beaucoup Théo</p></blockquote>
+          <footer><cite>mickaelle F.</cite><time datetime="2026-08-27">août 2026</time></footer>
+        </li>
+        <li class="review">
+          <span class="stars" role="img" aria-label="5 sur 5"></span>
+          <blockquote><p>Très bon accueil. Victime de leurs succès, il y a un peu d’attente si tu n’as pas pris rendez-vous avant. 25€ la coupe avec belle finition précise.</p></blockquote>
+          <footer><cite>dock W.</cite><time datetime="2026-09-01">septembre 2026</time></footer>
+        </li>
+        <li class="review">
+          <span class="stars" role="img" aria-label="5 sur 5"></span>
+          <blockquote><p>Rien de mieux a dire que c’est incroyable, Alfredo est un monstre il coupe trop bien… Et en plus ils mettent des bon son</p></blockquote>
+          <footer><cite>Augustin B.</cite><time datetime="2026-07-25">juillet 2026</time></footer>
+        </li>
+        <li class="review">
+          <span class="stars" role="img" aria-label="5 sur 5"></span>
+          <blockquote><p>J'ai été très bien accueillie, mon rdv était avec Alfredo. J'ai demandé une coupe simple et efficace et j'ai obtenu une bonne coupe professionnelle et élégante. Je recommande. Juste un petit conseil : prenez rendez-vous avant d'y aller, car il y a beaucoup de monde.</p></blockquote>
+          <footer><cite>Mr_vin's</cite><time datetime="2026-04-24">avril 2026</time></footer>
+        </li>
+        <li class="review">
+          <span class="stars" role="img" aria-label="5 sur 5"></span>
+          <blockquote><p>Première coupe avec Alfredo trop content du résultat… la déco est sympa il ont bien tenu compte de ce que je leur avait demandé et même mieux. Je vous conseille vivement cet endroit</p></blockquote>
+          <footer><cite>Delphine H.</cite><time datetime="2026-03-09">mars 2026</time></footer>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SERVICES / TARIFS -->
+  <section class="section dark services" id="tarifs" aria-labelledby="tarifs-title">
+    <div class="container services-grid">
+      <div class="services-head reveal">
+        <p class="eyebrow">Tarifs</p>
+        <h2 class="h2" id="tarifs-title"><span class="line">Coupe simple, <em>23&nbsp;€</em>.</span> <span class="line">Avec la barbe, <em>29&nbsp;€</em>.</span></h2>
+        <p>Tarifs étudiants et enfants, coupe femme, décoloration, et un service d’urgence après 20h. Comptez 30&nbsp;minutes pour une coupe homme.</p>
+        <ul class="specialties" aria-label="Spécialités du salon">
+          <li>Coupes classiques</li>
+          <li>Motifs</li>
+          <li>Effet bouclé (curly)</li>
+          <li>Défrisage</li>
+          <li>Barbe</li>
+        </ul>
+        <p class="fine">Tarifs publiés sur la page Planity du salon.</p>
+      </div>
+
+      <div class="board">
+        <div class="group group--main reveal">
+          <h3>Hommes <small>30 min</small></h3>
+          <ul class="prices">
+            <li><span class="p-name">Coupe simple</span><span class="p-price">23&nbsp;€</span></li>
+            <li><span class="p-name">Coupe + coiffage</span><span class="p-price">25&nbsp;€</span></li>
+            <li><span class="p-name">Coupe + barbe</span><span class="p-price">29&nbsp;€</span></li>
+            <li><span class="p-name">Coupe + barbe + coiffage</span><span class="p-price">31&nbsp;€</span></li>
+            <li><span class="p-name">Shampoing + coupe + coiffage</span><span class="p-price">34&nbsp;€</span></li>
+          </ul>
+        </div>
+        <div class="group group--etu reveal">
+          <h3>Étudiants <small>carte étudiante exigée</small></h3>
+          <ul class="prices">
+            <li><span class="p-name">Coupe simple</span><span class="p-price">20&nbsp;€</span></li>
+            <li><span class="p-name">Coupe + coiffage</span><span class="p-price">22&nbsp;€</span></li>
+            <li><span class="p-name">Coupe + barbe</span><span class="p-price">25&nbsp;€</span></li>
+          </ul>
+        </div>
+        <div class="group group--enf reveal">
+          <h3>Enfants <small>jusqu’à 11 ans</small></h3>
+          <ul class="prices">
+            <li><span class="p-name">Coupe</span><span class="p-price">16&nbsp;€</span></li>
+            <li><span class="p-name">Coupe + shampoing</span><span class="p-price">18&nbsp;€</span></li>
+            <li><span class="p-name">Coupe + shampoing + coiffage</span><span class="p-price">19&nbsp;€</span></li>
+          </ul>
+        </div>
+        <div class="group group--fem reveal">
+          <h3>Femmes</h3>
+          <ul class="prices">
+            <li><span class="p-name">Coupe femme <small>(30 min)</small></span><span class="p-price">24&nbsp;€</span></li>
+            <li><span class="p-name">Décoloration / mèches</span><span class="p-price is-text">Sur devis</span></li>
+          </ul>
+        </div>
+        <div class="group group--urgent reveal">
+          <h3>Urgence après 20h</h3>
+          <p>Un imprévu le soir, après la fermeture&nbsp;? Le salon propose un service d’urgence. Pour le demander, <a href="tel:+33767748757">appelez le 07&nbsp;67&nbsp;74&nbsp;87&nbsp;57</a>.</p>
+          <ul class="prices">
+            <li><span class="p-name">Coupe simple</span><span class="p-price">40&nbsp;€</span></li>
+            <li><span class="p-name">Coupe + barbe</span><span class="p-price">50&nbsp;€</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section dark salon" id="salon" aria-labelledby="salon-title">
+    <div class="container">
+      <div class="salon-head reveal">
+        <p class="eyebrow">Le salon</p>
+        <h2 class="h2" id="salon-title">Marbre noir, lames de noyer, <em>fauteuils blancs</em>.</h2>
+        <p>«&nbsp;La déco est sympa&nbsp;», lit-on dans les avis. Les fauteuils font face aux miroirs lumineux, le coin d’attente est au fond du salon.</p>
+      </div>
+      <div class="gallery reveal">
+        <button class="g-item g-a" type="button" data-index="0" aria-label="Agrandir la photo : la rangée de postes de coupe">
+          <img src="assets/photos/photo-01.jpg" width="1280" height="853" loading="lazy" decoding="async"
+               alt="La rangée de postes de coupe : miroirs lumineux, lames de noyer, fauteuils blancs et coin d’attente au fond">
+          <span class="g-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7"/></svg></span>
+        </button>
+        <button class="g-item g-b" type="button" data-index="1" aria-label="Agrandir la photo : un barbier en pleine coupe">
+          <img src="assets/photos/photo-06.jpg" width="1200" height="1600" loading="lazy" decoding="async"
+               alt="Un barbier du salon en pleine coupe, à côté de sa servante à outils noire et des tondeuses">
+          <span class="g-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7"/></svg></span>
+        </button>
+        <button class="g-item g-c" type="button" data-index="2" aria-label="Agrandir la photo : deux fauteuils de barbier">
+          <img src="assets/photos/photo-02.jpg" width="1280" height="853" loading="lazy" decoding="async"
+               alt="Deux fauteuils de barbier blancs et gris devant les miroirs encadrés de lumière">
+          <span class="g-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7"/></svg></span>
+        </button>
+        <button class="g-item g-d" type="button" data-index="3" aria-label="Agrandir la photo : le coin d’attente">
+          <img src="assets/photos/photo-08.jpg" width="1280" height="853" loading="lazy" decoding="async"
+               alt="Le coin d’attente : fauteuils en cuir noir, portraits en noir et blanc au mur, sol en marbre">
+          <span class="g-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7"/></svg></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOURS + LOCATION -->
+  <section class="section hours" id="horaires" aria-labelledby="horaires-title" style="--focus: var(--accent)">
+    <div class="container hours-grid">
+      <div class="hours-col reveal">
+        <p class="eyebrow">Horaires &amp; accès</p>
+        <h2 class="h2" id="horaires-title">Du lundi au samedi, de 10h à 20h.</h2>
+        <p class="status" data-status>Fermé le dimanche</p>
+        <table class="hours-table">
+          <caption class="sr-only">Horaires d’ouverture de M-Rik Barbershop</caption>
+          <tbody>
+            <tr data-day="1"><th scope="row">Lundi</th><td>10h – 20h</td></tr>
+            <tr data-day="2"><th scope="row">Mardi</th><td>10h – 20h</td></tr>
+            <tr data-day="3"><th scope="row">Mercredi</th><td>10h – 20h</td></tr>
+            <tr data-day="4"><th scope="row">Jeudi</th><td>10h – 20h</td></tr>
+            <tr data-day="5"><th scope="row">Vendredi</th><td>10h – 20h</td></tr>
+            <tr data-day="6"><th scope="row">Samedi</th><td>10h – 20h</td></tr>
+            <tr data-day="0" class="is-closed"><th scope="row">Dimanche</th><td>Fermé</td></tr>
+          </tbody>
+        </table>
+        <p class="note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
+          <span><strong>Rendez-vous recommandés.</strong> Sans réservation, il faut parfois attendre. <a href="https://www.planity.com/mrik-barber-72000-le-mans" target="_blank" rel="noopener">Réserver sur Planity</a></span>
+        </p>
+      </div>
+      <figure class="facade reveal">
+        <img src="assets/photos/photo-03.jpg" width="1600" height="1067" loading="lazy" decoding="async"
+             alt="La devanture noire de M-Rik Barbershop et son enseigne dorée, au 3 rue Gambetta">
+        <figcaption>Repérez l’enseigne dorée sur fond noir&nbsp;: «&nbsp;Salon de coiffure pour hommes et enfants&nbsp;».</figcaption>
+      </figure>
+    </div>
+
+    <div class="container map-row reveal">
+      <div class="map-frame">
+        <a class="map-fallback" href="https://www.google.com/maps/place/?q=place_id:ChIJ-XcbQJeJ4kcRCIj1_NV1hNQ" target="_blank" rel="noopener">Ouvrir le plan dans Google Maps</a>
+        <iframe src="https://www.google.com/maps?q=M-Rik%20Barbershop%2C%203%20Rue%20Gambetta%2C%2072000%20Le%20Mans&amp;output=embed"
+                loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
+                title="Plan : M-Rik Barbershop, 3 rue Gambetta, 72000 Le Mans"></iframe>
+      </div>
+      <div class="address-card">
+        <h3>3 rue Gambetta</h3>
+        <address>72000 Le Mans</address>
+        <a class="btn btn-gold" href="https://www.google.com/maps/dir/?api=1&amp;destination=M-Rik%20Barbershop%2C%203%20Rue%20Gambetta%2C%2072000%20Le%20Mans" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.8-6.5-11A6.5 6.5 0 0 1 18.5 10c0 5.2-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+          Itinéraire
+        </a>
+        <ul class="practical">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h3"/></svg>Carte bancaire et paiement sans contact</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="7" r="3"/><path d="M6.5 20v-3.5A5.5 5.5 0 0 1 12 11a5.5 5.5 0 0 1 5.5 5.5V20"/></svg>Enfants bienvenus, tarif enfant jusqu’à 11 ans</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Toilettes sur place</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact" aria-labelledby="contact-title">
+    <div class="container contact-grid">
+      <div class="contact-copy reveal">
+        <p class="eyebrow">Rendez-vous</p>
+        <h2 id="contact-title">Réservez avant de passer.</h2>
+        <p class="lead">Le salon est souvent plein. Sur Planity, vous choisissez l’heure et votre barbier, sans attendre sur place.</p>
+        <div class="team">
+          <p class="team-label">L’équipe sur Planity</p>
+          <ul class="team-names">
+            <li>Roby</li><li>MTS</li><li>Téo</li><li>Tihonny</li><li>Alfredo</li>
+          </ul>
+        </div>
+      </div>
+      <div class="contact-actions reveal">
+        <a class="btn btn-night" href="https://www.planity.com/mrik-barber-72000-le-mans" target="_blank" rel="noopener">
+          Réserver sur Planity
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+        </a>
+        <a class="btn btn-line" href="tel:+33767748757">
+          Appeler · 07&nbsp;67&nbsp;74&nbsp;87&nbsp;57
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h3.2l1.8 4.6-2.3 1.5a11 11 0 0 0 6.2 6.2l1.5-2.3L20 15.8V19a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 3 6.2 2 2 0 0 1 5 4z"/></svg>
+        </a>
+        <a class="btn btn-line" href="sms:+33767748757?&amp;body=Bonjour%2C%20je%20souhaiterais%20prendre%20rendez-vous%20au%20salon%20M-Rik%20Barbershop.%20Quels%20cr%C3%A9neaux%20avez-vous%20de%20disponibles%20%3F">
+          Envoyer un SMS
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 12a8.5 8.5 0 0 1-12.4 7.55L3.5 20.5l1-4.4A8.5 8.5 0 1 1 20.5 12z"/></svg>
+        </a>
+        <div class="socials">
+          <a class="social" href="https://www.instagram.com/mrik_barbershop_lemans/" target="_blank" rel="noopener" aria-label="M-Rik Barbershop sur Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></svg>
+          </a>
+          <a class="social" href="https://www.facebook.com/p/M-rik-barbershop-Le-Mans-100064794499591/" target="_blank" rel="noopener" aria-label="M-Rik Barbershop sur Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 3.5h-1.8A3.7 3.7 0 0 0 9 7.2V10H6.8v3.4H9v7.1h3.4v-7.1h2.6l.5-3.4h-3.1V7.6c0-.6.4-1 1-1h1.1z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a class="wordmark" href="#main" aria-label="M-Rik Barbershop, haut de page"><span class="wm-m">M-Rik</span><span class="wm-b">Barbershop</span></a>
+      <p>Salon de coiffure pour hommes et enfants, au 3 rue Gambetta depuis 2018.</p>
+    </div>
+    <div>
+      <h2 class="f-title">Adresse</h2>
+      <address>3 rue Gambetta<br>72000 Le Mans</address>
+      <div class="f-links">
+        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=M-Rik%20Barbershop%2C%203%20Rue%20Gambetta%2C%2072000%20Le%20Mans" target="_blank" rel="noopener">Itinéraire</a>
+      </div>
+    </div>
+    <div>
+      <h2 class="f-title">Contact</h2>
+      <div class="f-links">
+        <a href="tel:+33767748757">07 67 74 87 57</a>
+        <a href="https://www.planity.com/mrik-barber-72000-le-mans" target="_blank" rel="noopener">Réserver sur Planity</a>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJ-XcbQJeJ4kcRCIj1_NV1hNQ" target="_blank" rel="noopener">Avis Google</a>
+      </div>
+    </div>
+    <div class="footer-follow">
+      <h2 class="f-title">Suivre le salon</h2>
+      <div class="socials">
+        <a class="social" href="https://www.instagram.com/mrik_barbershop_lemans/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></svg>
+        </a>
+        <a class="social" href="https://www.facebook.com/p/M-rik-barbershop-Le-Mans-100064794499591/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 3.5h-1.8A3.7 3.7 0 0 0 9 7.2V10H6.8v3.4H9v7.1h3.4v-7.1h2.6l.5-3.4h-3.1V7.6c0-.6.4-1 1-1h1.1z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="container footer-base">
+    <p>© <span id="year"></span> M-Rik Barbershop</p>
+    <p>SARL M-Rik Barbershop Le Mans · SIREN 841&nbsp;190&nbsp;440</p>
+  </div>
+</footer>
+
+<nav class="action-bar" aria-label="Actions rapides">
+  <a href="tel:+33767748757">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h3.2l1.8 4.6-2.3 1.5a11 11 0 0 0 6.2 6.2l1.5-2.3L20 15.8V19a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 3 6.2 2 2 0 0 1 5 4z"/></svg>
+    Appeler
+  </a>
+  <a href="sms:+33767748757?&amp;body=Bonjour%2C%20je%20souhaiterais%20prendre%20rendez-vous%20au%20salon%20M-Rik%20Barbershop.%20Quels%20cr%C3%A9neaux%20avez-vous%20de%20disponibles%20%3F">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 12a8.5 8.5 0 0 1-12.4 7.55L3.5 20.5l1-4.4A8.5 8.5 0 1 1 20.5 12z"/></svg>
+    SMS
+  </a>
+  <a href="https://www.google.com/maps/dir/?api=1&amp;destination=M-Rik%20Barbershop%2C%203%20Rue%20Gambetta%2C%2072000%20Le%20Mans" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.8-6.5-11A6.5 6.5 0 0 1 18.5 10c0 5.2-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+    Itinéraire
+  </a>
+</nav>
+
+<dialog class="lightbox" id="lightbox" aria-label="Photo du salon agrandie">
+  <figure>
+    <img id="lb-img" alt="">
+    <figcaption id="lb-cap"></figcaption>
+  </figure>
+  <button class="lb-btn lb-close" type="button" aria-label="Fermer la photo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <button class="lb-btn lb-prev" type="button" aria-label="Photo précédente">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+  </button>
+  <button class="lb-btn lb-next" type="button" aria-label="Photo suivante">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+  </button>
+</dialog>
+
+<script>
+(() => {
+  const $ = (s, c = document) => c.querySelector(s);
+  const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+  const root = document.documentElement;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* year */
+  const y = $('#year'); if (y) y.textContent = new Date().getFullYear();
+
+  /* header: solid once we leave the top of the hero */
+  const header = $('.site-header');
+  const onScroll = () => header.classList.toggle('is-solid', scrollY > 24);
+  onScroll(); addEventListener('scroll', onScroll, { passive: true });
+
+  /* mobile menu */
+  const burger = $('.burger'), menu = $('#menu');
+  const setMenu = (open) => {
+    burger.setAttribute('aria-expanded', open);
+    burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+    root.classList.toggle('menu-open', open);
+    menu.inert = !open;
+    if (open) $('a', menu).focus();
+  };
+  burger.addEventListener('click', () => setMenu(burger.getAttribute('aria-expanded') !== 'true'));
+  $$('a', menu).forEach(a => a.addEventListener('click', () => setMenu(false)));
+  addEventListener('keydown', e => {
+    if (e.key === 'Escape' && root.classList.contains('menu-open')) { setMenu(false); burger.focus(); }
+  });
+  matchMedia('(min-width: 960px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
+
+  /* opening hours: live status in Europe/Paris time */
+  const HOURS = { lundi: '10:00–20:00', mardi: '10:00–20:00', mercredi: '10:00–20:00', jeudi: '10:00–20:00', vendredi: '10:00–20:00', samedi: '10:00–20:00', dimanche: 'Fermé' };
+  const DAYS = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
+  const toMin = (t) => { const m = t.match(/(\d{1,2})\s*[:h.]?\s*(\d{2})?/); return m ? +m[1] * 60 + (+m[2] || 0) : null; };
+  const parse = (v) => {
+    v = String(v || '').trim().toLowerCase();
+    if (!v || /ferm|closed/.test(v)) return [];
+    if (/24\s*h|24\s*\/\s*24|24 heures/.test(v)) return [[0, 1440]];
+    return v.split(/,|;|\bet\b/).map(r => r.split(/\s*[–—-]\s*|\s+à\s+/)).filter(p => p.length === 2).map(([a, b]) => {
+      const s = toMin(a); let e = toMin(b);
+      if (s === null || e === null) return null;
+      if (e <= s) e += 1440;
+      return [s, e];
+    }).filter(Boolean).sort((a, b) => a[0] - b[0]);
+  };
+  const fmt = (m) => { m %= 1440; const h = Math.floor(m / 60), mn = m % 60; return h + 'h' + (mn ? String(mn).padStart(2, '0') : ''); };
+  const parisNow = () => {
+    const parts = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', weekday: 'short', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).formatToParts(new Date());
+    const get = (t) => (parts.find(p => p.type === t) || {}).value;
+    const d = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(get('weekday'));
+    return { d: d < 0 ? new Date().getDay() : d, m: (+get('hour') % 24) * 60 + +get('minute') };
+  };
+  const status = () => {
+    const { d, m } = parisNow();
+    const today = parse(HOURS[DAYS[d]]), prev = parse(HOURS[DAYS[(d + 6) % 7]]);
+    for (const [s, e] of today) if (m >= s && m < e) return { d, open: true, s, e };
+    for (const [, e] of prev) if (e > 1440 && m < e - 1440) return { d, open: true, s: 0, e: e - 1440 };
+    for (let i = 0; i < 8; i++) {
+      const dd = (d + i) % 7;
+      for (const [s] of parse(HOURS[DAYS[dd]])) if (i > 0 || s > m) return { d, open: false, i, dd, s };
+    }
+    return { d, open: false };
+  };
+  const st = status();
+  let label;
+  if (st.open) label = (st.e - st.s >= 1440) ? 'Ouvert 24h/24' : 'Ouvert maintenant · jusqu’à ' + fmt(st.e);
+  else if (st.s === undefined) label = 'Fermé';
+  else label = 'Fermé · ouvre ' + (st.i === 0 ? '' : st.i === 1 ? 'demain ' : DAYS[st.dd] + ' ') + 'à ' + fmt(st.s);
+  $$('[data-status]').forEach(el => { el.textContent = label; el.classList.add(st.open ? 'is-open' : 'is-closed'); });
+  $$('.hours-table tr').forEach(tr => {
+    if (+tr.dataset.day === st.d) {
+      tr.classList.add('is-today'); tr.setAttribute('aria-current', 'date');
+      const tag = document.createElement('span'); tag.className = 'today-tag'; tag.textContent = 'Aujourd’hui';
+      tr.querySelector('th').append(tag);
+    }
+  });
+
+  /* scroll reveals + count-up (only for what starts below the fold) */
+  const countUp = (el) => {
+    const end = +el.dataset.count, t0 = performance.now(), dur = 1400;
+    const nf = new Intl.NumberFormat('fr-FR');
+    const tick = (t) => {
+      const p = Math.min(1, (t - t0) / dur), v = Math.round(end * (1 - Math.pow(1 - p, 3)));
+      el.textContent = nf.format(v);
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  if ('IntersectionObserver' in window && !reduced) {
+    const io = new IntersectionObserver((entries) => entries.forEach(en => {
+      if (!en.isIntersecting) return;
+      const el = en.target; io.unobserve(el);
+      if (el.dataset.count) countUp(el); else el.classList.add('is-in');
+    }), { rootMargin: '0px 0px -8% 0px', threshold: .08 });
+    $$('.reveal').forEach(el => {
+      if (el.getBoundingClientRect().top > innerHeight) { el.classList.add('is-armed'); io.observe(el); }
+    });
+    $$('[data-count]').forEach(el => { if (el.getBoundingClientRect().top > innerHeight) { el.textContent = '0'; io.observe(el); } });
+  }
+
+  /* review rail */
+  const rail = $('#rail');
+  const btns = $$('[data-rail]');
+  const step = () => { const c = rail.querySelector('.review'); return c ? c.getBoundingClientRect().width + 16 : rail.clientWidth * .8; };
+  const syncRail = () => {
+    btns[0].disabled = rail.scrollLeft < 4;
+    btns[1].disabled = rail.scrollLeft + rail.clientWidth > rail.scrollWidth - 4;
+  };
+  btns.forEach(b => b.addEventListener('click', () => rail.scrollBy({ left: step() * +b.dataset.rail, behavior: reduced ? 'auto' : 'smooth' })));
+  rail.addEventListener('scroll', syncRail, { passive: true }); addEventListener('resize', syncRail); syncRail();
+
+  /* gallery lightbox */
+  const dlg = $('#lightbox'), lbImg = $('#lb-img'), lbCap = $('#lb-cap');
+  const items = $$('.g-item');
+  let cur = 0, opener = null;
+  const show = (i) => {
+    cur = (i + items.length) % items.length;
+    const img = $('img', items[cur]);
+    lbImg.src = img.getAttribute('src'); lbImg.alt = img.alt; lbCap.textContent = img.alt;
+  };
+  if (dlg && typeof dlg.showModal === 'function') {
+    items.forEach((b, i) => b.addEventListener('click', () => { opener = b; show(i); dlg.showModal(); root.style.overflow = 'hidden'; }));
+    $('.lb-close', dlg).addEventListener('click', () => dlg.close());
+    $('.lb-prev', dlg).addEventListener('click', () => show(cur - 1));
+    $('.lb-next', dlg).addEventListener('click', () => show(cur + 1));
+    dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+    dlg.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') show(cur + 1);
+      if (e.key === 'ArrowLeft') show(cur - 1);
+    });
+    dlg.addEventListener('close', () => { root.style.overflow = ''; if (opener) opener.focus(); });
+  }
+})();
+</script>
+<!--sf:preview--><div style="padding:18px 16px;font:13px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;text-align:center;background:#0f0f10;color:#a3a3a8">Aperçu réalisé par Aymen Jallouli pour M-Rik Barbershop : ce site n'est pas encore le site officiel de l'établissement.</div><!--/sf:preview-->
+<!--sf:track--><script>(function(){try{var q=new URLSearchParams(location.search),r=q.get('r')||sessionStorage.getItem('sf_r');if(!r)return;sessionStorage.setItem('sf_r',r);navigator.sendBeacon("https://track.aymenjallouli.dev/t"+'?r='+encodeURIComponent(r)+'&p='+encodeURIComponent(location.pathname));}catch(e){}})();</script><!--/sf:track-->
+</body>
+</html>
